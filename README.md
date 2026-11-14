@@ -92,7 +92,9 @@ manager are no longer included when saving, but are not deleted.
 - Unknown filesystems, unopened encrypted devices, and configurations with
   unresolved external GRUB variables cannot be imported. Submenus are
   processed as individual entries; outer conditions and global settings are
-  not copied.
+  not copied. The literal `linux_gfx_mode` setting in the standard Debian
+  `10_linux` header is copied into each entry; dynamic or ambiguous values
+  remain unsupported.
 - Windows verification covers UEFI boot managers on FAT EFI partitions. The
   BCD must unambiguously reference GPT/NTFS partitions; required bootloader and
   system files must exist and be readable. Successful verification confirms an

@@ -57,6 +57,73 @@ class ExtractionTests(unittest.TestCase):
         self.assertEqual(name, "")
         self.assertIn("vt_handoff", warnings[0])
 
+    def test_imports_debian_linux_gfx_mode_in_each_entry(self):
+        text = """### BEGIN /etc/grub.d/10_linux ###
+function gfxmode {
+  set gfxpayload="${1}"
+}
+set linux_gfx_mode=keep
+export linux_gfx_mode
+menuentry 'GuideOS' {
+  gfxmode $linux_gfx_mode
+  linux /vmlinuz
+}
+submenu 'Advanced' {
+  menuentry 'GuideOS older' {
+    gfxmode ${linux_gfx_mode}
+    linux /vmlinuz-old
+  }
+}
+### END /etc/grub.d/10_linux ###
+"""
+        content, name, count, warnings = manager.extract_entries(text, "ABCD")
+        self.assertEqual((name, count, warnings), ("GuideOS", 2, []))
+        self.assertEqual(content.count("set linux_gfx_mode=keep"), 2)
+        self.assertRegex(content, r"function gos_[a-f0-9]+_gfxmode")
+        self.assertRegex(content, r"(?s)menuentry 'GuideOS'.*set linux_gfx_mode=keep.*gos_[a-f0-9]+_gfxmode \$linux_gfx_mode")
+        manager._validate(content)
+        quoted = text.replace("linux_gfx_mode=keep", 'linux_gfx_mode="1024x768"')
+        content, _, count, warnings = manager.extract_entries(quoted, "ABCD")
+        self.assertEqual((count, warnings), (2, []))
+        self.assertEqual(content.count("set linux_gfx_mode=1024x768"), 2)
+
+    def test_ambiguous_or_dynamic_linux_gfx_mode_remains_unresolved(self):
+        template = """### BEGIN /etc/grub.d/10_linux ###
+function gfxmode {{
+  set gfxpayload="${{1}}"
+}}
+set linux_gfx_mode={value}
+export linux_gfx_mode
+{extra}
+menuentry 'GuideOS' {{
+  gfxmode $linux_gfx_mode
+  linux /vmlinuz
+}}
+### END /etc/grub.d/10_linux ###
+"""
+        for value, extra in (
+            ("$gfxmode", ""),
+            ("keep", "set linux_gfx_mode=text"),
+            ("keep", "if true; then set linux_gfx_mode=text; fi"),
+            ("keep", "unset linux_gfx_mode"),
+            ("keep", "load_env"),
+        ):
+            with self.subTest(value=value, extra=extra):
+                _, _, count, warnings = manager.extract_entries(
+                    template.format(value=value, extra=extra), "ABCD")
+                self.assertEqual(count, 0)
+                self.assertIn("linux_gfx_mode", warnings[0])
+
+    def test_literal_linux_gfx_mode_must_use_supported_header(self):
+        text = """set linux_gfx_mode=keep
+menuentry 'GuideOS' {
+  linux /vmlinuz $linux_gfx_mode
+}
+"""
+        _, _, count, warnings = manager.extract_entries(text, "ABCD")
+        self.assertEqual(count, 0)
+        self.assertIn("linux_gfx_mode", warnings[0])
+
     def test_braces_in_strings_and_variable_expansions(self):
         text = """menuentry 'Linux {safe}' {
   set args="${root}"

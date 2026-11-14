@@ -27,6 +27,14 @@ VARIABLE = re.compile(r"\$(?:\{([A-Za-z_][A-Za-z0-9_]*)\}|([A-Za-z_][A-Za-z0-9_]
 DEFINITION = re.compile(r"^\s*function\s+([A-Za-z_][A-Za-z0-9_]*)\s*\{", re.MULTILINE)
 ENTRY = re.compile(r"^\s*menuentry\s+", re.MULTILINE)
 BOOT_COMMAND = re.compile(r"^\s*(?:linux(?:efi|16)?|chainloader)\s+", re.MULTILINE)
+LINUX_GFX_MODE = re.compile(
+    r"(?m)^### BEGIN /etc/grub\.d/10_linux ###\r?\n"
+    r"[ \t]*function[ \t]+gfxmode[ \t]*\{[ \t]*\r?\n"
+    r'[ \t]*set[ \t]+gfxpayload="\$\{1\}"[ \t]*\r?\n'
+    r"[ \t]*\}[ \t]*\r?\n"
+    r"[ \t]*set[ \t]+linux_gfx_mode=(['\"]?)([A-Za-z0-9_,.-]+)\1[ \t]*\r?\n"
+    r"[ \t]*export[ \t]+linux_gfx_mode[ \t]*$"
+)
 BUILTIN_VARIABLES = {
     "root", "prefix", "grub_platform", "feature_all_video_module",
     "feature_menuentry_id", "feature_platform_search_hint",
@@ -153,6 +161,16 @@ def extract_entries(text: str, filesystem_uuid: str,
     if not UUID.fullmatch(filesystem_uuid):
         raise ValueError(tr("Filesystem UUID is missing or invalid"))
     definitions = _definitions(text)
+    gfx_modes = list(LINUX_GFX_MODE.finditer(text))
+    gfx_assignments = re.findall(
+        r"(?<![A-Za-z0-9_])(?:(?:set[ \t]+)?linux_gfx_mode=|unset[ \t]+linux_gfx_mode\b)",
+        text,
+    )
+    gfx_mode = None
+    if len(gfx_modes) == len(gfx_assignments) == 1:
+        later_text = text[gfx_modes[0].end():]
+        if not re.search(r"(?<![A-Za-z0-9_])load_env(?=[ \t;\r\n]|$)", later_text):
+            gfx_mode = gfx_modes[0].group(2)
     entries = []
     warnings = []
     first_name = ""
@@ -203,6 +221,10 @@ def extract_entries(text: str, filesystem_uuid: str,
         ))
         used = {a or b for a, b in VARIABLE.findall(combined)}
         unsupported = used - assigned - BUILTIN_VARIABLES
+        if "linux_gfx_mode" in unsupported and gfx_mode is not None:
+            block = block[:brace + 1] + f"\n    set linux_gfx_mode={gfx_mode}" + block[brace + 1:]
+            combined = "\n".join(definitions[n] for n in sorted(needed)) + "\n" + block
+            unsupported.remove("linux_gfx_mode")
         if unsupported:
             warnings.append(
                 tr("{name}: external GRUB variables cannot be resolved: {variables}").format(
