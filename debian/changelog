@@ -1,5 +1,7 @@
 gos-grub-manager (0.1.0-1) unstable; urgency=medium
 
   * Initial Debian package release.
+  * Import the literal linux_gfx_mode setting from standard Debian GRUB
+    configurations when extracting Linux boot entries.
 
  -- KTT73 <ktt73@guideos.de>  Sat, 14 Nov 2026 21:26:00 +0100
