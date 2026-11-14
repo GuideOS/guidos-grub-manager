@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	install -d debian/build/locale/de/LC_MESSAGES
+	msgfmt --check --output-file=debian/build/locale/de/LC_MESSAGES/gos-grub-manager.mo locale/de/LC_MESSAGES/gos-grub-manager.po
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf debian/build

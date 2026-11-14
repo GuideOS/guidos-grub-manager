@@ -1,0 +1,30 @@
+Source: gos-grub-manager
+Section: utils
+Priority: optional
+Maintainer: KTT73 <ktt1973@users.noreply.github.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ gettext
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+Homepage: https://github.com/GuideOS/guidos-grub-manager
+
+Package: gos-grub-manager
+Architecture: all
+Depends:
+ dbus-daemon,
+ gir1.2-adw-1,
+ gir1.2-gtk-4.0,
+ grub-common,
+ pkexec | policykit-1,
+ python3,
+ python3-gi,
+ util-linux,
+ ${misc:Depends}
+Recommends:
+ ntfs-3g,
+ python3-hivex
+Description: GTK application for managing additional GRUB entries
+ GOS GRUB Manager discovers GRUB configurations on supported disks and
+ lets users select and order entries in its own custom.cfg. It does not
+ modify the system's grub.cfg.

@@ -1,0 +1,9 @@
+app.py usr/lib/gos-grub-manager
+grub_manager.py usr/lib/gos-grub-manager
+i18n.py usr/lib/gos-grub-manager
+open_editor.py usr/lib/gos-grub-manager
+start.py usr/lib/gos-grub-manager
+windows_uefi.py usr/lib/gos-grub-manager
+GuideOS.desktop usr/share/applications
+debian/build/locale/de/LC_MESSAGES/gos-grub-manager.mo usr/lib/gos-grub-manager/locale/de/LC_MESSAGES
+debian/gos-grub-manager-launcher usr/bin/gos-grub-manager
