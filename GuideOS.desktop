@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=GuideOS Grub Manager
+GenericName=GuideOS Grub Manager
+GenericName[de]=GuideOS Grub Manager
+Comment=Manage operating system entries in GRUB
+Comment[de]=Betriebssystemeinträge in GRUB verwalten
+Exec=gos-grub-manager
+Terminal=false
+Categories=GuideOS;System;Utility;
+Keywords=GRUB;boot;operating system;
+Keywords[de]=GRUB;Start;Betriebssystem;

@@ -43,6 +43,9 @@ Run from the project directory:
 ./start.py
 ```
 
+On Debian, install the package and launch **GuideOS GRUB Manager** from the
+applications menu, or run `gos-grub-manager`.
+
 The launcher requests administrator privileges using `pkexec`. It does not
 install a custom polkit rule. The graphical session must allow the privileged
 process to access the display. Alternatively, run `/usr/bin/python3 start.py`.
@@ -132,6 +135,23 @@ change `/boot` or the running system's mounts.
 ```sh
 /usr/bin/python3 -m unittest discover -s tests -v
 ```
+
+## Debian package
+
+Build the binary package from the project root with Debian packaging tools
+installed (`debhelper` and `gettext`):
+
+```sh
+dpkg-buildpackage -us -uc -b
+```
+
+The `.deb` is written to the parent directory. Install it with:
+
+```sh
+sudo apt install ../gos-grub-manager_0.1.0-1_all.deb
+```
+
+`python3-hivex` and `ntfs-3g` are recommended for Windows UEFI detection.
 
 ## Project overview
 
