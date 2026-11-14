@@ -1,0 +1,486 @@
+# German translations for GOS GRUB Manager.
+# This file is distributed under the same license as the project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: GOS GRUB Manager\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-14 18:34+0100\n"
+"PO-Revision-Date: 2026-11-14 18:34+0100\n"
+"Last-Translator: GOS GRUB Manager contributors\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app.py:46
+msgid "Search for operating systems with GRUB"
+msgstr "Betriebssysteme mit GRUB suchen"
+
+#: app.py:50
+msgid ""
+"The scan reads GRUB configurations and checks Windows UEFI. The running "
+"system's GRUB configuration is excluded. Windows legacy BIOS is not "
+"supported. Nothing is saved until you confirm."
+msgstr ""
+"Die Suche liest GRUB-Konfigurationen und prüft Windows-UEFI. Die GRUB-"
+"Konfiguration des laufenden Systems wird ausgelassen. Windows-Legacy-BIOS "
+"wird nicht unterstützt. Gespeichert wird erst nach Bestätigung."
+
+#: app.py:58
+msgid "Search"
+msgstr "Suchen"
+
+#: app.py:61
+msgid "Add to custom.cfg"
+msgstr "In custom.cfg übernehmen"
+
+#: app.py:66
+msgid "Ready."
+msgstr "Bereit."
+
+#: app.py:68
+msgid "Configuration file order"
+msgstr "Reihenfolge der Konfigurationsdateien"
+
+#: app.py:72
+msgid ""
+"Select a file and move it, or double-click to open it in the editor. New "
+"search results are appended at the bottom."
+msgstr ""
+"Datei auswählen und verschieben oder per Doppelklick im Editor öffnen. "
+"Neue Suchergebnisse werden unten angefügt."
+
+#: app.py:89
+msgid "Move up"
+msgstr "Nach oben"
+
+#: app.py:92
+msgid "Move down"
+msgstr "Nach unten"
+
+#: app.py:111 app.py:268
+#, python-brace-format
+msgid "Cannot save order: {error}"
+msgstr "Reihenfolge nicht speicherbar: {error}"
+
+#: app.py:114
+#, python-brace-format
+msgid "{count} existing configuration loaded."
+msgid_plural "{count} existing configurations loaded."
+msgstr[0] "{count} vorhandene Konfiguration geladen."
+msgstr[1] "{count} vorhandene Konfigurationen geladen."
+
+#: app.py:134
+msgid " (not included)"
+msgstr " (nicht eingebunden)"
+
+#: app.py:135
+msgid " (new)"
+msgstr " (neu)"
+
+#: app.py:156
+msgid "Order changed; not saved yet."
+msgstr "Reihenfolge geändert; noch nicht gespeichert."
+
+#: app.py:161
+msgid "The selected file is no longer in the list."
+msgstr "Die ausgewählte Datei ist nicht mehr in der Liste."
+
+#: app.py:165
+msgid "This file has not been saved yet and cannot be opened."
+msgstr "Diese Datei ist noch nicht gespeichert und kann nicht geöffnet werden."
+
+#: app.py:168
+#, python-brace-format
+msgid "Invalid filename: {name}"
+msgstr "Ungültiger Dateiname: {name}"
+
+#: app.py:173
+#, python-brace-format
+msgid "File is missing or is a symbolic link: {name}"
+msgstr "Datei fehlt oder ist ein symbolischer Link: {name}"
+
+#: app.py:178
+msgid "No unprivileged user is available."
+msgstr "Kein unprivilegierter Benutzer verfügbar."
+
+#: app.py:181
+#, python-brace-format
+msgid "Cannot launch editor: {error}"
+msgstr "Editor kann nicht gestartet werden: {error}"
+
+#: app.py:193
+msgid "Opening editor..."
+msgstr "Editor wird geöffnet ..."
+
+#: app.py:205
+msgid "The editor could not be launched."
+msgstr "Der Editor konnte nicht gestartet werden."
+
+#: app.py:207
+#, python-brace-format
+msgid "Could not open editor: {error}"
+msgstr "Editor konnte nicht geöffnet werden: {error}"
+
+#: app.py:209
+msgid "File passed to the default editor."
+msgstr "Datei an den Standardeditor übergeben."
+
+#: app.py:221
+msgid "Searching; unmounted filesystems are temporarily mounted..."
+msgstr "Suche läuft; nicht eingehängte Dateisysteme werden temporär eingehängt ..."
+
+#: app.py:235
+#, python-brace-format
+msgid "Search failed: {error}"
+msgstr "Suche fehlgeschlagen: {error}"
+
+#: app.py:252
+#, python-brace-format
+msgid ""
+"{name} — {device}:/{location}\n"
+"  {count} boot entry → {filename}\n"
+"\n"
+"{content}"
+msgid_plural ""
+"{name} — {device}:/{location}\n"
+"  {count} boot entries → {filename}\n"
+"\n"
+"{content}"
+msgstr[0] ""
+"{name} — {device}:/{location}\n"
+"  {count} Boot-Eintrag → {filename}\n"
+"\n"
+"{content}"
+msgstr[1] ""
+"{name} — {device}:/{location}\n"
+"  {count} Boot-Einträge → {filename}\n"
+"\n"
+"{content}"
+
+#: app.py:259
+msgid "Notes:"
+msgstr "Hinweise:"
+
+#: app.py:261
+msgid ""
+"Unverified Windows files will no longer be included when saving; the files "
+"will be retained:"
+msgstr ""
+"Nicht bestätigte Windows-Dateien werden beim Speichern nicht mehr "
+"eingebunden; die Dateien bleiben erhalten:"
+
+#: app.py:264
+msgid "No configuration found."
+msgstr "Keine Konfiguration gefunden."
+
+#: app.py:266
+#, python-brace-format
+msgid "{count} configuration found."
+msgid_plural "{count} configurations found."
+msgstr[0] "{count} Konfiguration gefunden."
+msgstr[1] "{count} Konfigurationen gefunden."
+
+#: app.py:276
+msgid "Please wait until scanning and unmounting are complete."
+msgstr "Bitte warten, bis die Suche und das Aushängen abgeschlossen sind."
+
+#: app.py:284
+msgid "Save GRUB entries?"
+msgstr "GRUB-Einträge speichern?"
+
+#: app.py:285
+msgid ""
+"Files under /boot/grub/custom and the managed /boot/grub/custom.cfg will be "
+"created or updated using the displayed order. Existing unmanaged custom.cfg "
+"files will not be overwritten. Only import trusted disks. Search for GRUB "
+"entries again after kernel updates. Windows entries are for UEFI only; "
+"verification does not guarantee bootability. Unverified managed Windows "
+"files will not be included, but will be retained."
+msgstr ""
+"Dateien unter /boot/grub/custom und die verwaltete /boot/grub/custom.cfg "
+"werden erstellt oder aktualisiert; die angezeigte Reihenfolge wird übernommen. "
+"Fremde custom.cfg-Dateien werden nicht überschrieben. Nur vertrauenswürdige "
+"Datenträger übernehmen. GRUB-Einträge nach Kernel-Updates erneut suchen. "
+"Windows-Einträge gelten nur für UEFI; die Prüfung garantiert keine "
+"Bootfähigkeit. Nicht bestätigte verwaltete Windows-Dateien werden nicht "
+"eingebunden, bleiben aber erhalten."
+
+#: app.py:292
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: app.py:293
+msgid "Save"
+msgstr "Speichern"
+
+#: app.py:308
+#, python-brace-format
+msgid "Save failed: {error}"
+msgstr "Speichern fehlgeschlagen: {error}"
+
+#: app.py:320
+msgid "Configuration saved. grub.cfg was not changed."
+msgstr "Konfiguration gespeichert. grub.cfg wurde nicht verändert."
+
+#: app.py:334
+msgid "Please start with /usr/bin/python3 start.py and pkexec."
+msgstr "Bitte mit /usr/bin/python3 start.py und pkexec starten."
+
+#: grub_manager.py:66
+msgid "Error"
+msgstr "Fehler"
+
+#: grub_manager.py:119
+msgid "Unterminated GRUB block"
+msgstr "Nicht abgeschlossener GRUB-Block"
+
+#: grub_manager.py:140
+msgid "Filesystem UUID is missing or invalid"
+msgstr "Dateisystem-UUID fehlt oder ist ungültig"
+
+#: grub_manager.py:154
+msgid "An entry without a readable name was skipped."
+msgstr "Ein Eintrag ohne lesbaren Namen wurde übersprungen."
+
+#: grub_manager.py:158
+#, python-brace-format
+msgid "{name}: Windows chainloader is checked separately against the BCD."
+msgstr "{name}: Windows-Chainloader wird separat anhand der BCD geprüft."
+
+#: grub_manager.py:194
+#, python-brace-format
+msgid "{name}: external GRUB variables cannot be resolved: {variables}"
+msgstr "{name}: externe GRUB-Variablen nicht auflösbar: {variables}"
+
+#: grub_manager.py:217
+#, python-brace-format
+msgid "Path escapes the filesystem: {path}"
+msgstr "Pfad verlässt das Dateisystem: {path}"
+
+#: grub_manager.py:256
+#, python-brace-format
+msgid "{path}: filesystem {fstype} is not supported."
+msgstr "{path}: Dateisystem {fstype} wird nicht unterstützt."
+
+#: grub_manager.py:259
+#, python-brace-format
+msgid "{path}: filesystem UUID is missing."
+msgstr "{path}: keine Dateisystem-UUID vorhanden."
+
+#: grub_manager.py:292
+#, python-brace-format
+msgid "{path}: {config}: no supported boot entries."
+msgstr "{path}: {config}: keine unterstützten Boot-Einträge."
+
+#: grub_manager.py:311 windows_uefi.py:167
+#, python-brace-format
+msgid "WARNING: {path} is still mounted: {error}"
+msgstr "ACHTUNG: {path} noch eingehängt: {error}"
+
+#: grub_manager.py:349 grub_manager.py:388
+msgid "Symbolic links are not allowed as targets."
+msgstr "Symbolische Links als Ziel sind nicht erlaubt."
+
+#: grub_manager.py:351
+msgid "The custom target path is not a directory."
+msgstr "Der Zielpfad custom ist kein Ordner."
+
+#: grub_manager.py:356 grub_manager.py:394
+#, python-brace-format
+msgid "Unsupported file in custom: {name}"
+msgstr "Nicht unterstützte Datei in custom: {name}"
+
+#: grub_manager.py:362
+msgid "An unmanaged custom.cfg exists; it will not be overwritten."
+msgstr "Eine fremde custom.cfg existiert; sie wird nicht überschrieben."
+
+#: grub_manager.py:370
+msgid ""
+"The managed custom.cfg contains unknown lines; the order cannot be read "
+"safely."
+msgstr ""
+"Die verwaltete custom.cfg enthält unbekannte Zeilen; die Reihenfolge kann "
+"nicht sicher gelesen werden."
+
+#: grub_manager.py:375
+#, python-brace-format
+msgid "Invalid or duplicate reference in custom.cfg: {name}"
+msgstr "Ungültiger oder mehrfacher Verweis in custom.cfg: {name}"
+
+#: grub_manager.py:411
+msgid "The saved order or files have changed. Please restart the application."
+msgstr "Die gespeicherte Reihenfolge oder die Dateien haben sich geändert. Bitte die Anwendung neu starten."
+
+#: grub_manager.py:413
+msgid "The enabled files have changed. Please restart the application."
+msgstr "Die aktivierten Dateien haben sich geändert. Bitte die Anwendung neu starten."
+
+#: grub_manager.py:416
+msgid "Duplicate target filenames; no files were written."
+msgstr "Doppelte Zieldateinamen; keine Dateien geschrieben."
+
+#: grub_manager.py:419
+msgid "No entries to save."
+msgstr "Keine Einträge zum Speichern vorhanden."
+
+#: grub_manager.py:423
+msgid ""
+"The files have changed or the order is invalid. Please restart the "
+"application."
+msgstr ""
+"Die Dateien haben sich geändert oder die Reihenfolge ist ungültig. "
+"Bitte die Anwendung neu starten."
+
+#: grub_manager.py:427
+msgid "Invalid disabled configurations."
+msgstr "Ungültige deaktivierte Konfigurationen."
+
+#: grub_manager.py:432
+msgid "Only managed Windows configurations can be disabled."
+msgstr "Nur verwaltete Windows-Konfigurationen können deaktiviert werden."
+
+#: grub_manager.py:437
+#, python-brace-format
+msgid "Unmanaged file will not be overwritten: {name}"
+msgstr "Fremde Datei wird nicht überschrieben: {name}"
+
+#: grub_manager.py:440
+msgid "Invalid generated configuration."
+msgstr "Ungültige generierte Konfiguration."
+
+#: grub_manager.py:472
+#, python-brace-format
+msgid "Write failed: {error}; rollback failed: {details}"
+msgstr "Schreiben fehlgeschlagen: {error}; Wiederherstellung fehlgeschlagen: {details}"
+
+#: windows_uefi.py:42
+msgid "BCD path is not absolute or contains invalid characters."
+msgstr "BCD-Pfad ist nicht absolut oder enthält ungültige Zeichen."
+
+#: windows_uefi.py:45
+msgid "BCD path contains invalid path components."
+msgstr "BCD-Pfad enthält ungültige Pfadbestandteile."
+
+#: windows_uefi.py:57
+#, python-brace-format
+msgid "Ambiguous filename under {path}: {name}"
+msgstr "Nicht eindeutiger Dateiname unter {path}: {name}"
+
+#: windows_uefi.py:62
+#, python-brace-format
+msgid "Symbolic link will not be followed: {path}"
+msgstr "Symbolischer Link wird nicht verfolgt: {path}"
+
+#: windows_uefi.py:69
+#, python-brace-format
+msgid "Unexpected file format: {name}"
+msgstr "Unerwartetes Dateiformat: {name}"
+
+#: windows_uefi.py:78
+msgid "Unsupported BCD device identifier (GPT partitions only)."
+msgstr "Nicht unterstützte BCD-Gerätekennung (nur GPT-Partitionen)."
+
+#: windows_uefi.py:82
+msgid "Empty GPT identifier in BCD."
+msgstr "Leere GPT-Kennung im BCD."
+
+#: windows_uefi.py:90
+msgid "Python HiveX is missing; Windows BCD cannot be read."
+msgstr "Python-HiveX fehlt; Windows-BCD kann nicht gelesen werden."
+
+#: windows_uefi.py:95
+msgid "BCD hive is invalid or contains uncommitted transactions."
+msgstr "BCD-Hive ist ungültig oder enthält nicht übernommene Transaktionen."
+
+#: windows_uefi.py:101
+#, python-brace-format
+msgid "BCD key is missing: {name}"
+msgstr "BCD-Schlüssel fehlt: {name}"
+
+#: windows_uefi.py:107
+#, python-brace-format
+msgid "BCD value is missing: {name}"
+msgstr "BCD-Wert fehlt: {name}"
+
+#: windows_uefi.py:110
+#, python-brace-format
+msgid "Unexpected data type for BCD value {name}."
+msgstr "Unerwarteter Datentyp für BCD-Wert {name}."
+
+#: windows_uefi.py:126
+msgid "BCD contains no Windows boot menu entries."
+msgstr "BCD enthält keine Windows-Bootmenüeinträge."
+
+#: windows_uefi.py:132
+#, python-brace-format
+msgid "BCD entry {entry} is not a supported Windows UEFI loader."
+msgstr "BCD-Eintrag {entry} ist kein unterstützter Windows-UEFI-Loader."
+
+#: windows_uefi.py:139
+#, python-brace-format
+msgid "BCD entry {entry} does not use a Windows UEFI loader."
+msgstr "BCD-Eintrag {entry} verwendet keinen Windows-UEFI-Loader."
+
+#: windows_uefi.py:201
+msgid "Windows bootloader found, but BCD is missing."
+msgstr "Windows-Bootloader gefunden, aber BCD fehlt."
+
+#: windows_uefi.py:205
+msgid "EFI partition is not a uniquely identifiable GPT partition."
+msgstr "EFI-Partition ist keine eindeutig identifizierbare GPT-Partition."
+
+#: windows_uefi.py:207
+msgid "EFI GPT partition is not unique."
+msgstr "EFI-GPT-Partition ist nicht eindeutig."
+
+#: windows_uefi.py:211
+msgid "EFI filesystem UUID is missing or not unique."
+msgstr "EFI-Dateisystem-UUID fehlt oder ist nicht eindeutig."
+
+#: windows_uefi.py:225
+msgid "BCD partition is missing, not unique, or not readable NTFS."
+msgstr "BCD-Partition fehlt, ist nicht eindeutig oder nicht lesbares NTFS."
+
+#: windows_uefi.py:230
+#, python-brace-format
+msgid "Windows file is missing on {device}: {path}"
+msgstr "Windows-Datei fehlt auf {device}: {path}"
+
+#: windows_uefi.py:247
+#, python-brace-format
+msgid "{path}: Windows UEFI not imported: {error}"
+msgstr "{path}: Windows-UEFI nicht übernommen: {error}"
+
+#: open_editor.py:17
+msgid "The file is not readable by the logged-in user."
+msgstr "Die Datei ist für den angemeldeten Benutzer nicht lesbar."
+
+#: open_editor.py:20
+msgid "No default editor for text files is configured."
+msgstr "Kein Standardeditor für Textdateien eingerichtet."
+
+#: open_editor.py:22
+msgid "The default editor could not be launched."
+msgstr "Der Standardeditor konnte nicht gestartet werden."
+
+#: start.py:18 start.py:30
+#, python-brace-format
+msgid "Note: The user session accessibility bus is unavailable: {error}"
+msgstr "Hinweis: Der Barrierefreiheitsbus der Benutzersitzung ist nicht erreichbar: {error}"
+
+#: start.py:33
+msgid "Note: GTK may not be able to provide accessibility support."
+msgstr "Hinweis: GTK kann möglicherweise keine Barrierefreiheit bereitstellen."
+
+#: start.py:62
+#, python-brace-format
+msgid "Launch failed: {error}"
+msgstr "Start fehlgeschlagen: {error}"
+
+#, python-brace-format
+msgid "Note: Could not determine the user color scheme: {error}"
+msgstr "Hinweis: Das Farbschema des Benutzers konnte nicht ermittelt werden: {error}"
